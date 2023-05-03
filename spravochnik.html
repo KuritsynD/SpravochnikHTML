@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<meta charset = "utf-8">
+		<title>Справочник</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<!-- Основная таблица -->
+		<table class="table tblpep table-hover">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Фамилия</th>
+					<th scope="col">Имя</th>
+					<th scope="col">Номер телефона</th>	
+					<th scope="col">      </th>										
+				</tr>
+			</thead>
+			<tbody>
+				<tr onclick="ShowFullInfo()">
+					<td id="param1">param0</td>
+					<td id="param1">param1</td>
+					<td id="param2">param2</td>
+					<td id="param3">param3</td>
+					<td class="MyButtonStyle">
+						<!-- Кнопка-триггер модального окна редактировать человека -->
+						<button class="btn btn-primary btnModify" data-bs-toggle="modal" data-bs-target="#pepMod"> 
+							<img class="colinv" src="icon/pencil-fill.svg" width="16" height="16" alt="Редактировать" >														
+						</button>
+						<!-- Модальное окно редактировать человека -->
+						<div class="modal fade" id="pepMod" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Редактировать человека</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+									</div>
+									<div class="modal-body" onclick="Modify()">
+										<form>
+											<div class="fname">
+											<label for="_fname" class="form-label">Фамилия</label>
+											<input type="text" class="form-control" id="_fname">
+											</div>
+											<div class="sname">
+												<label for="_sname" class="form-label">Имя</label>
+												<input type="text" class="form-control" id="_sname">
+											</div>							
+										<div class="lname">
+											<label for="_lname" class="form-label">Отчество</label>
+											<input type="text" class="form-control" id="_lname">
+										</div>
+										<div class="age">
+											<label for="_age" class="form-label">Возраст</label>
+											<input type="text" class="form-control" id="_age">
+										</div>
+										<div class="phone">
+											<label for="_phone" class="form-label">Телефон</label>
+											<input type="text" class="form-control" id="_phone">
+										</div>
+										<button type="submit" class="btn btn-primary btnAddform">Сохранить</button>
+										</form>						
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Кнопка-триггер модального окна удалить человека -->
+						<button class="btn btn-danger btnDel" data-bs-toggle="modal" data-bs-target="#pepDel">
+							<img class="colinv" src="icon/trash3-fill.svg" width="16" height="16" alt="Удалить" >
+						</button>
+						<!-- Модальное окно удалить человека -->
+						<div class="modal fade" id="pepDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Удалить человека</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+									</div>
+									<div class="modal-body" onclick="DelPeoples()">
+										Хотите удалить ...?<br>
+
+									<button type="submit" class="btn btn-danger btnAddform">Удалить</button>					
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+
+		<!-- Кнопка-триггер модального окна добавить человека -->
+		<button type="button" class="btn btn-primary btnAdd" data-bs-toggle="modal" data-bs-target="#pepAdd">
+			Добавить человека
+		</button>
+  
+		<!-- Модальное окно добавить человека -->
+		<div class="modal fade" id="pepAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Добавить человека</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="fname">
+							  <label for="_fname" class="form-label">Фамилия</label>
+							  <input type="text" class="form-control" id="_fname">
+							</div>
+							<div class="sname">
+								<label for="_sname" class="form-label">Имя</label>
+								<input type="text" class="form-control" id="_sname">
+							  </div>							
+						  <div class="lname">
+							<label for="_lname" class="form-label">Отчество</label>
+							<input type="text" class="form-control" id="_lname">
+						  </div>
+						  <div class="age">
+							<label for="_age" class="form-label">Возраст</label>
+							<input type="text" class="form-control" id="_age">
+						  </div>
+						  <div class="phone">
+							<label for="_phone" class="form-label">Телефон</label>
+							<input type="text" class="form-control" id="_phone">
+						  </div>
+						  <button type="submit" class="btn btn-primary btnAddform">Добавить</button>
+						  </form>						
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+					</div>
+				</div>
+			</div>
+		</div>		
+
+		<script src="js/jquery-3.6.4.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
+
+
+
+
+
+

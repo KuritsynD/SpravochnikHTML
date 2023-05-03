@@ -1,0 +1,24 @@
+.btnAdd{
+    margin: 10px 1650px 1px 25px;
+}
+.btnAddform{
+    margin-top: 15px;
+}
+.tblpep{
+    margin: 10px 0px 0px 10px;    
+    border: 1px solid;
+    border-collapse: collapse;
+    width: 99%;
+}
+.MyButtonStyle{
+    width: 150px;
+}
+
+.modcol{
+    color: white;
+}
+
+.colinv{
+    filter: invert(1);
+}
+
